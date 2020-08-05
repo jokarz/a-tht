@@ -86,8 +86,6 @@ const HotelEntries = () => {
   }, [currency])
 
   const combineData = (hotels: HotelsData[], pricings: PricingsData[]): CombinedHotelsData[] => {
-    console.log({ hotels })
-    console.log({ pricings })
     let newCombinedData:CombinedHotelsData[] = hotels.map((hotel) => {
       let priceData = pricings.find(pricing => pricing.id === hotel.id) || {}
       return { ...hotel, ...priceData }
