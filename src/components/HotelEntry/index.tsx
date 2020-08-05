@@ -6,6 +6,7 @@ import { currencyRounding } from '../../helper/currency'
 
 type HotelEntryProps = {
   name: string,
+  address: string,
   id: number,
   photo: string,
   rating: number,
@@ -25,7 +26,7 @@ type PricingData = {
   price: number
 }[]
 
-const HotelEntry: FC<HotelEntryProps> = ({ id, name, photo, rating, stars, taxes_and_fees, price, currency, competitors }) => {
+const HotelEntry: FC<HotelEntryProps> = ({ id, address, name, photo, rating, stars, taxes_and_fees, price, currency, competitors }) => {
   let starClass = new Array(stars).fill('')
   let pricingData: PricingData = []
   if (price) {
@@ -65,11 +66,15 @@ const HotelEntry: FC<HotelEntryProps> = ({ id, name, photo, rating, stars, taxes
           <div className="font-bold text-xl">
             {name}
           </div>
+
           <div className="text-yellow-500" title={`${stars} stars hotel`}>
             {
               starClass.map((e, i) => <i key={i} className="fas fa-star"></i>)
             }
           </div>
+          <div className="text-sm text-gray-800 mt-2">
+            <i className="fas fa-map-marker-alt"></i> {address}
+            </div>
         </div>
 
         <div className="flex">

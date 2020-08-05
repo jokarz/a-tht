@@ -3,6 +3,44 @@ import axios from 'axios';
 import HotelEntry from '../HotelEntry'
 import CurrencyPicker from './CurrencyPicker'
 
+type CombinedHotelsData = HotelsData & {
+  id: number,
+  name: string,
+  address: string,
+  description: string,
+  photo: string,
+  price?: number,
+  stars: number,
+  rating: number,
+  taxes_and_fees?: {
+    [keys: string]: number
+  },
+  competitors?: {
+    [keys: string]: number
+  }
+}
+
+type HotelsData = {
+  id: number,
+  name: string,
+  address: string,
+  description: string,
+  photo: string,
+  stars: number,
+  rating: number
+}
+
+type PricingsData = {
+  id: number,
+  price?: number,
+  competitors?: {
+    [keys: string]: number
+  },
+  taxes_and_fees?: {
+    [keys: string]: number
+  }
+}
+
 const staticUrl = 'https://5df9cc6ce9f79e0014b6b3dc.mockapi.io/hotels/tokyo'
 const currenciesUrlPrefix = 'https://5df9cc6ce9f79e0014b6b3dc.mockapi.io/hotels/tokyo/1/'
 
@@ -28,7 +66,7 @@ const setCurrencyStorage = (currency: string) => {
 const HotelEntries = () => {
   const currencies = ['USD', 'SGD', 'CNY', 'KRW']
 
-  const [data, setData] = useState<any[]>([])
+  const [data, setData] = useState<CombinedHotelsData[]>([])
   const [currency, setCurrency] = useState(getCurrencyStorage())
   const [loading, setLoading] = useState(true)
 
@@ -47,11 +85,14 @@ const HotelEntries = () => {
     });
   }, [currency])
 
-  const combineData = (hotels: any[], pricings: any[]) => {
-    return hotels.map((hotel) => {
+  const combineData = (hotels: HotelsData[], pricings: PricingsData[]): CombinedHotelsData[] => {
+    console.log({ hotels })
+    console.log({ pricings })
+    let newCombinedData:CombinedHotelsData[] = hotels.map((hotel) => {
       let priceData = pricings.find(pricing => pricing.id === hotel.id) || {}
       return { ...hotel, ...priceData }
-    }).sort((a, b) => {
+    }) 
+    return newCombinedData.sort((a, b) => {
       if (typeof (a.price) === 'undefined') {
         return 1
       }
@@ -78,7 +119,7 @@ const HotelEntries = () => {
         <div className="rounded-lg mx-6 flex flex-col">
           <div className="px-6 flex flex justify-between items-center">
             <div className="font-semibold text-xl">
-            <i className="fas fa-search"></i> {data.length} hotels found
+              <i className="fas fa-search"></i> {data.length} hotels found
         </div>
             <CurrencyPicker currency={currency} setCurrency={setCurrency} currencies={currencies} />
           </div>
