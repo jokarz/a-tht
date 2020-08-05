@@ -1,0 +1,54 @@
+[
+  {
+  "id": 1,
+  "price": 164,
+  "competitors": {
+  "Traveloka": 190,
+  "Expedia": 163
+  },
+  "taxes_and_fees": {
+  "tax": 13.12,
+  "hotel_fees": 16.4
+  }
+  },
+  {
+  "id": 2,
+  "price": 1150,
+  "taxes_and_fees": {
+  "tax": 92,
+  "hotel_fees": 115
+  }
+  },
+  {
+  "id": 3,
+  "price": 979.74,
+  "competitors": {
+  "Expedia": 981.88,
+  "Prestigia": 801.62
+  }
+  },
+  {
+  "id": 4,
+  "price": 212.39,
+  "competitors": {
+  "Kayak": 230.52,
+  "getaroom": 250
+  }
+  },
+  {
+  "id": 7,
+  "price": 168.5,
+  "taxes_and_fees": {
+  "tax": 13.48,
+  "hotel_fees": 16.85
+  }
+  },
+  {
+  "id": 8,
+  "price": 168.5,
+  "taxes_and_fees": {
+  "tax": 13.48,
+  "hotel_fees": 16.85
+  }
+  }
+  ]

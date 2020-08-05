@@ -1,0 +1,14 @@
+@import "tailwindcss/base";
+
+@import "tailwindcss/components";
+
+@import "tailwindcss/utilities";
+
+
+div[data-popper-placement^='bottom'] {
+  @apply mt-6;
+}
+
+div[data-popper-placement^='top'] {
+  @apply mb-6;
+}
