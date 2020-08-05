@@ -1,5 +1,9 @@
 module.exports = {
-  purge: [],
+  purge: {
+    content: [
+      "./src/**/*.tsx"
+    ]
+  },
   theme: {
     extend: {
       fontSize: {

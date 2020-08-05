@@ -4,7 +4,7 @@ import HotelEntry from '../HotelEntry'
 import CurrencyPicker from './CurrencyPicker'
 
 const staticUrl = 'https://5df9cc6ce9f79e0014b6b3dc.mockapi.io/hotels/tokyo'
-const currenciesUrlPrefix = 'http://5df9cc6ce9f79e0014b6b3dc.mockapi.io/hotels/tokyo/1/'
+const currenciesUrlPrefix = 'https://5df9cc6ce9f79e0014b6b3dc.mockapi.io/hotels/tokyo/1/'
 
 const getCurrencyStorage = (): string => {
   let defaultCurrency = 'USD'
