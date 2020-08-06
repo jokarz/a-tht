@@ -4,6 +4,7 @@ import HotelEntry from '../components/HotelEntry';
 
 let data = {
   "id": 1,
+  "address": "108-8611 Tokyo Prefecture, Minato-ku, Takanawa 4-10-30, Japan",
   "name": "Shinagawa Prince Hotel",
   "photo": "https://d2ey9sqrvkqdfs.cloudfront.net/ZqSQ/i1_t.jpg",
   "rating": 7.7,
