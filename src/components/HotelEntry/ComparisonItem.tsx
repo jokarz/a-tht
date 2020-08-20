@@ -82,7 +82,7 @@ const ComparisonItem: FC<ComparisonItemProps> = ({ pricing, extendedPricings }) 
                   <div
                     key={company}
                     className={`block p-2 ${extendedPricings.length - 1 === index ? '' : 'border-b'}`}>
-                    <div className="truncate">{currency}${price} -{' '}
+                    <div className="truncate">{currency}${currencyFormat(price, 0)} -{' '}
                       {
                         company === 'us' ?
                           <span className="text-sm font-bold text-green-600">Our price</span> :
